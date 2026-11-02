@@ -1232,6 +1232,69 @@ img {
     }
 
 }
+    
+/* =====================================
+   TAMBAHAN ANIMASI MASUK & SCROLL
+===================================== */
+.nz-nav {
+    opacity: 0;
+    transform: translateY(-18px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+body.page-loaded .nz-nav {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-content > * {
+    opacity: 0;
+    animation: none;
+}
+body.page-loaded .hero-content > * {
+    animation: heroItemIn .85s cubic-bezier(.2,.7,.2,1) both;
+}
+body.page-loaded .hero-content > *:nth-child(1) { animation-delay: .15s; }
+body.page-loaded .hero-content > *:nth-child(2) { animation-delay: .30s; }
+body.page-loaded .hero-content > *:nth-child(3) { animation-delay: .45s; }
+body.page-loaded .hero-content > *:nth-child(4) { animation-delay: .60s; }
+body.page-loaded .hero-content > *:nth-child(5) { animation-delay: .75s; }
+
+@keyframes heroItemIn {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animasi elemen ketika masuk ke area layar */
+.reveal, .reveal-left, .reveal-right {
+    opacity: 0;
+    animation: none !important;
+    transition: opacity .85s ease, transform .85s cubic-bezier(.2,.7,.2,1);
+    transition-delay: 0s;
+    will-change: opacity, transform;
+}
+.reveal { transform: translateY(42px); }
+.reveal-left { transform: translateX(-48px); }
+.reveal-right { transform: translateX(48px); }
+
+.reveal.is-visible, .reveal-left.is-visible, .reveal-right.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Kartu muncul sedikit bergantian */
+.row > .reveal:nth-child(2) { transition-delay: .12s; }
+.row > .reveal:nth-child(3) { transition-delay: .24s; }
+.row > .reveal:nth-child(4) { transition-delay: .36s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .nz-nav, .hero-content > *, .reveal, .reveal-left, .reveal-right {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
     </style>
 </head>
 
@@ -1792,6 +1855,46 @@ img {
         playButton.innerHTML =
             '<i class="bi bi-play-fill"></i> Putar Musik';
     });
+</script>
+
+
+<!-- JAVASCRIPT ANIMASI MASUK & SCROLL -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Animasi navbar dan isi hero saat halaman pertama kali dibuka.
+    requestAnimationFrame(function () {
+        document.body.classList.add("page-loaded");
+    });
+
+    // Animasi elemen saat mulai terlihat ketika halaman di-scroll.
+    const revealElements = document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right"
+    );
+
+    // Fallback untuk browser yang belum mendukung IntersectionObserver.
+    if (!("IntersectionObserver" in window)) {
+        revealElements.forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+        return;
+    }
+
+    const revealObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -45px 0px"
+    });
+
+    revealElements.forEach(function (element) {
+        revealObserver.observe(element);
+    });
+});
 </script>
 
 </body>
