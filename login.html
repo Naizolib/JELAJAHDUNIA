@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Naizo Library</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #111111;
+            --section: #1a1a1a;
+            --card: #222222;
+            --border: #414141;
+            --silver: #d0d0d0;
+            --text: #f5f5f5;
+            --muted: #999999;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* BACKGROUND */
+
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 35px 20px;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 15% 20%, rgba(190,190,190,.09), transparent 30%),
+                radial-gradient(circle at 85% 80%, rgba(120,120,120,.10), transparent 30%),
+                #111;
+        }
+
+        .glow {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: .12;
+            pointer-events: none;
+            animation: floating 8s ease-in-out infinite alternate;
+        }
+
+        .glow-one {
+            background: #d0d0d0;
+            top: -150px;
+            left: -100px;
+        }
+
+        .glow-two {
+            background: #777;
+            bottom: -160px;
+            right: -100px;
+            animation-delay: 2s;
+        }
+
+        @keyframes floating {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(60px, 45px);
+            }
+        }
+
+        /* LOGIN CONTAINER */
+
+        .login-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 950px;
+            min-height: 570px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            background: rgba(30, 30, 30, .92);
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 25px;
+            overflow: hidden;
+
+            box-shadow: 0 25px 80px rgba(0,0,0,.5);
+            animation: cardEnter .8s ease both;
+        }
+
+        @keyframes cardEnter {
+            from {
+                opacity: 0;
+                transform: translateY(35px) scale(.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* LEFT PANEL */
+
+        .login-left {
+            padding: 55px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            background:
+                linear-gradient(145deg, rgba(255,255,255,.10), transparent 55%),
+                linear-gradient(135deg, #292929, #151515);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-left::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(255,255,255,.09);
+            border-radius: 50%;
+            right: -130px;
+            bottom: -130px;
+            box-shadow:
+                0 0 0 35px rgba(255,255,255,.025),
+                0 0 0 70px rgba(255,255,255,.02);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: #fff;
+            padding: 4px;
+        }
+
+        .brand-name {
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: .5px;
+        }
+
+        .brand-name span {
+            color: var(--silver);
+        }
+
+        .welcome-content {
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
+            animation: contentEnter 1s .2s both;
+        }
+
+        @keyframes contentEnter {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-tag {
+            display: inline-block;
+            padding: 7px 13px;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 30px;
+            color: var(--silver);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            margin-bottom: 22px;
+        }
+
+        .welcome-content h1 {
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.25;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .welcome-content h1 span {
+            color: var(--silver);
+        }
+
+        .welcome-content p {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.9;
+            max-width: 330px;
+        }
+
+        .left-footer {
+            position: relative;
+            z-index: 1;
+            color: #858585;
+            font-size: 11px;
+            letter-spacing: .5px;
+        }
+
+        /* RIGHT PANEL */
+
+        .login-right {
+            padding: 55px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #1b1b1b;
+        }
+
+        .form-heading {
+            margin-bottom: 32px;
+            animation: contentEnter .8s .2s both;
+        }
+
+        .form-heading .small-title {
+            color: var(--muted);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .form-heading h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 9px;
+        }
+
+        .form-heading p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* INPUT */
+
+        .form-group {
+            margin-bottom: 21px;
+            animation: contentEnter .8s both;
+        }
+
+        .form-group:nth-child(1) {
+            animation-delay: .3s;
+        }
+
+        .form-group:nth-child(2) {
+            animation-delay: .4s;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 9px;
+            color: #ddd;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i.input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 16px;
+            transition: .3s;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            height: 51px;
+            padding: 0 45px 0 45px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            outline: none;
+            background: #252525;
+            color: var(--text);
+            font-size: 12px;
+            transition: .3s ease;
+        }
+
+        .input-wrapper input::placeholder {
+            color: #777;
+        }
+
+        .input-wrapper input:focus {
+            border-color: var(--silver);
+            background: #292929;
+            box-shadow: 0 0 0 4px rgba(208,208,208,.08);
+        }
+
+        .input-wrapper:focus-within i.input-icon {
+            color: var(--silver);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            color: #888;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .toggle-password:hover {
+            color: white;
+        }
+
+        /* OPTIONS */
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin: 5px 0 25px;
+            font-size: 11px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .remember input {
+            accent-color: #d0d0d0;
+        }
+
+        .forgot {
+            color: var(--silver);
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .forgot:hover {
+            color: white;
+        }
+
+        /* BUTTON */
+
+        .btn-login {
+            width: 100%;
+            height: 51px;
+            border: 1px solid var(--silver);
+            border-radius: 11px;
+            background: var(--silver);
+            color: #111;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: .3s ease;
+        }
+
+        .btn-login::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,.7),
+                transparent
+            );
+            transition: .6s;
+        }
+
+        .btn-login:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,.3);
+        }
+
+        .btn-login:hover::before {
+            left: 100%;
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .login-message {
+            min-height: 18px;
+            margin-top: 12px;
+            color: #c8c8c8;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        /* BACK HOME */
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 27px;
+            color: #888;
+            text-decoration: none;
+            font-size: 11px;
+            transition: .3s;
+        }
+
+        .back-home:hover {
+            color: white;
+        }
+
+        .back-home i {
+            margin-right: 5px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+            .login-container {
+                max-width: 480px;
+                grid-template-columns: 1fr;
+            }
+
+            .login-left {
+                min-height: 230px;
+                padding: 28px 30px;
+            }
+
+            .welcome-content {
+                margin-top: 30px;
+            }
+
+            .welcome-content h1 {
+                font-size: 29px;
+            }
+
+            .welcome-content p {
+                max-width: 100%;
+                font-size: 12px;
+            }
+
+            .left-footer {
+                display: none;
+            }
+
+            .login-right {
+                padding: 38px 30px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .login-page {
+                padding: 15px;
+            }
+
+            .login-left {
+                padding: 25px 22px;
+            }
+
+            .login-right {
+                padding: 32px 22px;
+            }
+
+            .form-heading h2 {
+                font-size: 25px;
+            }
+
+            .login-options {
+                font-size: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="login-page">
+
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+    <div class="login-container">
+
+        <!-- LEFT SIDE -->
+        <section class="login-left">
+
+            <a href="index.html" class="brand text-decoration-none text-white">
+    <i class="bi bi-book-half brand-icon"></i>
+
+    <div class="brand-name">
+        Naizo <span>Library.</span>
+    </div>
+</a>
+
+            <div class="welcome-content">
+
+                <span class="welcome-tag">
+                    YOUR DIGITAL READING SPACE
+                </span>
+
+                <h1>
+                    Explore More.<br>
+                    <span>Read Beyond.</span>
+                </h1>
+
+                <p>
+                    Temukan berbagai koleksi bacaan dan perluas
+                    wawasanmu bersama Naizo Library. Mulai perjalanan
+                    membaca dari sini.
+                </p>
+
+            </div>
+
+            <div class="left-footer">
+                © 2026 Naizo Library. All rights reserved.
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+        <section class="login-right">
+
+            <div class="form-heading">
+
+                <div class="small-title">
+                    Member Access
+                </div>
+
+                <h2>Welcome Back.</h2>
+
+                <p>Silakan masuk untuk melanjutkan aktivitas membaca.</p>
+
+            </div>
+
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="username">Username atau Email</label>
+
+                    <div class="input-wrapper">
+
+                        <i class="bi bi-person input-icon"></i>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Masukkan username atau email"
+                            autocomplete="username"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">Password</label>
+
+                    <div class="input-wrapper">
+
+                        <i class="bi bi-lock input-icon"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Masukkan password"
+                            autocomplete="current-password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="togglePassword"
+                            aria-label="Tampilkan password">
+
+                            <i class="bi bi-eye" id="eyeIcon"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-options">
+
+                    <label class="remember">
+                        <input type="checkbox" name="remember">
+                        <span>Ingat saya</span>
+                    </label>
+
+                    <a href="#" class="forgot">
+                        Lupa password?
+                    </a>
+
+                </div>
+
+
+                <button type="submit" class="btn-login">
+                    <span>
+                        Masuk Sekarang
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </span>
+                </button>
+
+                <div class="login-message" id="loginMessage" aria-live="polite"></div>
+
+            </form>
+
+
+            <a href="index.html" class="back-home">
+                <i class="bi bi-arrow-left"></i>
+                Kembali ke Beranda
+            </a>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<script>
+    // SHOW / HIDE PASSWORD
+    const passwordInput = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+    const eyeIcon = document.getElementById("eyeIcon");
+
+    togglePassword.addEventListener("click", function () {
+
+        const isPassword = passwordInput.type === "password";
+
+        passwordInput.type = isPassword ? "text" : "password";
+
+        eyeIcon.className = isPassword
+            ? "bi bi-eye-slash"
+            : "bi bi-eye";
+
+        togglePassword.setAttribute(
+            "aria-label",
+            isPassword ? "Sembunyikan password" : "Tampilkan password"
+        );
+
+    });
+
+
+    // LOGIN DEMO
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        const message = document.getElementById("loginMessage");
+
+        message.textContent =
+            "Form berhasil diisi. Login belum terhubung ke database.";
+
+    });
+</script>
+
+</body>
+</html>
