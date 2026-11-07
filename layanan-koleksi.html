@@ -635,6 +635,90 @@
         transition-duration: .01ms !important;
       }
     }
+
+    /* READING HOME */
+    .reading-home { padding: 58px 0 95px; background: var(--bg); min-height: 70vh; }
+    .reading-top { display:flex; justify-content:space-between; align-items:center; gap:24px; margin-bottom:28px; }
+    .reading-title { font-size:clamp(2.4rem,5vw,3.5rem); font-weight:700; letter-spacing:-2px; margin:5px 0 6px; }
+    .reading-subtitle { color:var(--muted); margin:0; font-size:.94rem; }
+    .reading-tools { display:flex; align-items:center; gap:18px; }
+    .reading-icon-btn { border:0; background:transparent; color:var(--text); font-size:1.55rem; width:44px; height:44px; }
+    .reader-avatar { width:44px; height:44px; border-radius:50%; display:grid; place-items:center; color:var(--text); background:linear-gradient(145deg,#777,#292929); border:1px solid #777; font-size:1.2rem; }
+    .reading-search { display:none; align-items:center; gap:12px; padding:13px 17px; margin:0 0 22px; border:1px solid var(--border); border-radius:12px; background:var(--card); color:var(--muted); }
+    .reading-search.show { display:flex; }
+    .reading-search input { width:100%; border:0; outline:0; color:var(--text); background:transparent; font:inherit; }
+    .reading-tabs { display:flex; gap:9px; overflow-x:auto; padding:0 0 18px; border-bottom:1px solid var(--border); scrollbar-width:none; }
+    .reading-tabs::-webkit-scrollbar { display:none; }
+    .reading-tab { flex:0 0 auto; border:1px solid transparent; border-radius:9px; padding:10px 17px; background:transparent; color:var(--muted); font:500 .9rem 'Poppins',sans-serif; transition:.25s; }
+    .reading-tab:hover { color:var(--text); background:#252525; }
+    .reading-tab.active { color:#111; background:var(--silver); }
+    .reading-view { display:none; }
+    .reading-view.active { display:block; animation:fadeUp .45s ease both; }
+    .feed-section { padding:30px 0 34px; border-bottom:1px solid rgba(255,255,255,.09); }
+    .feed-section:last-child { border-bottom:0; }
+    .feed-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:20px; }
+    .feed-heading h2 { margin:3px 0 0; font-size:clamp(1.35rem,3vw,1.8rem); font-weight:600; letter-spacing:-.7px; }
+    .feed-kicker { color:var(--muted); font-size:.68rem; letter-spacing:1.8px; }
+    .feed-note { color:var(--muted); font-size:.78rem; }
+    .see-all { color:var(--gray); font-size:.82rem; white-space:nowrap; }
+    .see-all:hover { color:var(--text); }
+    .featured-reading { position:relative; display:grid; grid-template-columns:1.3fr .7fr; min-height:245px; overflow:hidden; border:1px solid var(--border); border-radius:15px; background:linear-gradient(110deg,#242424,#171717); }
+    .featured-copy { padding:28px 32px; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:1; }
+    .reading-tag { color:var(--silver); font-size:.68rem; letter-spacing:1.5px; }
+    .featured-author { color:var(--muted); font-size:.8rem; margin:14px 0 8px; }
+    .featured-author i { color:var(--silver); margin-right:7px; }
+    .featured-copy h3 { max-width:600px; font-size:clamp(1.15rem,2.4vw,1.75rem); line-height:1.45; font-weight:500; margin:0 0 22px; }
+    .featured-image { min-height:245px; overflow:hidden; }
+    .featured-image img { width:100%; height:100%; object-fit:cover; filter:grayscale(65%) brightness(.72); }
+    .reading-meta { display:flex; align-items:center; flex-wrap:wrap; gap:16px; color:var(--muted); font-size:.73rem; }
+    .reading-meta i { margin-right:4px; }
+    .save-reading { position:absolute; top:12px; right:12px; z-index:2; width:35px; height:35px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.25); border-radius:50%; color:#fff; background:rgba(15,15,15,.65); backdrop-filter:blur(8px); transition:.25s; }
+    .save-reading:hover,.save-reading.saved { color:#111; background:var(--silver); }
+    .reading-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .reading-card { min-width:0; position:relative; }
+    .cover-wrap { position:relative; aspect-ratio:4/3; overflow:hidden; border-radius:11px; background:#252525; border:1px solid rgba(255,255,255,.08); }
+    .cover-wrap img { width:100%; height:100%; object-fit:cover; filter:grayscale(55%) brightness(.78); transition:transform .6s ease,filter .6s ease; }
+    .reading-card:hover .cover-wrap img { transform:scale(1.055); filter:grayscale(15%) brightness(.92); }
+    .reading-card h3 { font-size:1rem; line-height:1.45; font-weight:500; margin:12px 0 5px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .reading-author { color:var(--muted); font-size:.78rem; margin:0 0 7px; }
+    .reading-card .reading-meta { gap:14px; }
+    .reading-genre-badge { position:absolute; left:10px; bottom:10px; padding:5px 9px; border:1px solid rgba(255,255,255,.2); border-radius:20px; color:var(--text); background:rgba(12,12,12,.72); backdrop-filter:blur(8px); font-size:.62rem; }
+    .reading-empty { display:none; color:var(--muted); text-align:center; padding:55px 15px; border:1px dashed var(--border); border-radius:12px; font-size:.9rem; }
+    .download-empty { text-align:center; padding:70px 20px; color:var(--muted); }
+    .download-empty > i { font-size:2.3rem; color:var(--silver); }
+    .download-empty h3 { color:var(--text); font-size:1.15rem; margin:16px 0 8px; }
+    .download-empty p { font-size:.85rem; margin:0; }
+    .reading-card[hidden], .reading-item[hidden] { display:none !important; }
+    @media(max-width:767px) {
+      .reading-home { padding:38px 0 65px; }
+      .reading-top { align-items:flex-start; }
+      .reading-title { font-size:2.55rem; }
+      .reading-subtitle { max-width:250px; font-size:.82rem; }
+      .reading-tools { gap:9px; }
+      .reader-avatar { width:38px; height:38px; }
+      .reading-tabs { gap:5px; margin-right:-12px; }
+      .reading-tab { padding:9px 13px; font-size:.8rem; }
+      .feed-section { padding:25px 0 28px; }
+      .feed-note { display:none; }
+      .featured-reading { grid-template-columns:1fr 112px; min-height:190px; }
+      .featured-copy { padding:19px 16px; }
+      .featured-copy h3 { font-size:1rem; margin-bottom:15px; }
+      .featured-image { min-height:190px; }
+      .featured-reading > .save-reading { top:9px; right:9px; }
+      .reading-meta { gap:10px; font-size:.67rem; }
+      .reading-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 14px; }
+      .cover-wrap { aspect-ratio:4/3; }
+      .reading-card h3 { font-size:.88rem; }
+      .reading-author { font-size:.72rem; }
+      .feed-heading h2 { font-size:1.25rem; }
+    }
+    @media(max-width:390px) {
+      .featured-reading { grid-template-columns:1fr 92px; }
+      .featured-copy { padding:15px 12px; }
+      .featured-copy h3 { font-size:.9rem; }
+      .reading-grid { gap:18px 11px; }
+    }
+
   </style>
 </head>
 
@@ -667,235 +751,180 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="container">
-      <div class="crumbs">
-        <a href="index.html">Home</a> / Layanan &amp; Koleksi
-      </div>
-
-      <h1>Layanan &amp; Koleksi</h1>
-      <p>
-        Semua yang bisa Anda pakai dan baca di Naizo Library, dari buku cetak
-        sampai jurnal digital.
-      </p>
-    </div>
-  </section>
-
-  <!-- LAYANAN -->
-  <section class="nz-section">
+  <!-- RUANG BACA / FEED -->
+  <section class="reading-home" id="bacaan">
     <div class="container">
 
-      <div class="section-head reveal-left">
-        <span class="section-label">Apa yang tersedia</span>
-        <h2 class="section-title">Layanan Perpustakaan</h2>
-        <hr class="divider">
-        <p>
-          Layanan gratis untuk anggota, sebagian terbuka untuk pengunjung umum.
-          Kami menyediakan fasilitas untuk mendukung kegiatan membaca dan belajar.
-        </p>
-      </div>
-
-      <div class="row g-4">
-
-        <div class="col-12 col-md-6 col-lg-4 reveal" style="--d:0s">
-          <article class="nz-card">
-            <div class="icon-box"><i class="bi bi-journal-bookmark"></i></div>
-            <h3>Peminjaman Buku</h3>
-            <p>Pinjam hingga lima buku selama 14 hari dengan kartu anggota.</p>
-          </article>
+      <div class="reading-top">
+        <div>
+          <span class="section-label">NAIZO READING SPACE</span>
+          <h1 class="reading-title">Bacaan</h1>
+          <p class="reading-subtitle">Temukan cerita yang mungkin sedang kamu butuhkan.</p>
         </div>
-
-        <div class="col-12 col-md-6 col-lg-4 reveal" style="--d:.1s">
-          <article class="nz-card">
-            <div class="icon-box"><i class="bi bi-lamp"></i></div>
-            <h3>Ruang Baca</h3>
-            <p>Ruang senyap dengan meja individu dan colokan di setiap kursi.</p>
-          </article>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 reveal" style="--d:.2s">
-          <article class="nz-card">
-            <div class="icon-box"><i class="bi bi-tablet-landscape"></i></div>
-            <h3>Digital Library</h3>
-            <p>E-book, jurnal, dan arsip digital yang bisa diakses dari mana saja.</p>
-          </article>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 reveal" style="--d:.3s">
-          <article class="nz-card">
-            <div class="icon-box"><i class="bi bi-wifi"></i></div>
-            <h3>WiFi Gratis</h3>
-            <p>Koneksi cepat di seluruh area tanpa batas waktu.</p>
-          </article>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 reveal" style="--d:.4s">
-          <article class="nz-card">
-            <div class="icon-box"><i class="bi bi-chat-square-text"></i></div>
-            <h3>Ruang Diskusi</h3>
-            <p>Ruang kecil yang bisa dipesan untuk kelompok hingga delapan orang.</p>
-          </article>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 reveal" style="--d:.5s">
-          <article class="nz-card">
-            <div class="icon-box"><i class="bi bi-search"></i></div>
-            <h3>Layanan Referensi</h3>
-            <p>Pustakawan membantu menelusuri sumber untuk tugas dan penelitian.</p>
-          </article>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- KOLEKSI -->
-  <section class="nz-section nz-section-alt" id="koleksi">
-    <div class="container">
-
-      <div class="row g-5 align-items-center mb-5">
-
-        <div class="col-lg-5 reveal-left">
-          <div class="collection-intro">
-            <span class="section-label">Jelajahi bacaan</span>
-            <h2 class="section-title">Koleksi Naizo Library</h2>
-            <hr class="divider">
-            <p>
-              Lebih dari 48.500 judul tersusun berdasarkan bidang, sehingga
-              mudah ditemukan sendiri maupun dengan bantuan pustakawan.
-            </p>
+        <div class="reading-tools">
+          <button class="reading-icon-btn" type="button" aria-label="Cari bacaan" id="searchToggle">
+            <i class="bi bi-search"></i>
+          </button>
+          <div class="reader-avatar" aria-label="Profil pembaca">
+            <i class="bi bi-person"></i>
           </div>
         </div>
-
-        <div class="col-lg-7 reveal">
-          <figure class="img-zoom">
-            <img
-              src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1400&q=70"
-              alt="Deretan rak koleksi buku"
-              loading="lazy">
-            <figcaption class="img-badge">
-              <i class="bi bi-collection"></i> Koleksi cetak
-            </figcaption>
-          </figure>
-        </div>
-
       </div>
 
-      <div class="section-head reveal-left">
-        <h2 class="section-title">Kategori Koleksi</h2>
-        <hr class="divider">
-        <p>Temukan berbagai bahan bacaan berdasarkan kategori dan format koleksi.</p>
+      <div class="reading-search" id="readingSearch">
+        <i class="bi bi-search"></i>
+        <input type="search" id="readingSearchInput" placeholder="Cari judul, penulis, atau genre..." aria-label="Cari bacaan">
       </div>
 
-      <div class="table-wrap reveal">
-        <div class="table-responsive">
-          <table class="nz-table">
-            <thead>
-              <tr>
-                <th>Kategori</th>
-                <th>Jumlah Judul</th>
-                <th>Lokasi</th>
-                <th>Format</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Sastra &amp; Fiksi</td>
-                <td>12.800</td>
-                <td>Lantai 1, Rak A–D</td>
-                <td><span class="tag">Cetak</span></td>
-              </tr>
-              <tr>
-                <td>Sains &amp; Teknologi</td>
-                <td>9.600</td>
-                <td>Lantai 2, Rak E–H</td>
-                <td><span class="tag">Cetak &amp; Digital</span></td>
-              </tr>
-              <tr>
-                <td>Sejarah &amp; Budaya</td>
-                <td>7.400</td>
-                <td>Lantai 2, Rak J–L</td>
-                <td><span class="tag">Cetak</span></td>
-              </tr>
-              <tr>
-                <td>Seni, Desain &amp; Tipografi</td>
-                <td>4.900</td>
-                <td>Lantai 1, Rak M–N</td>
-                <td><span class="tag">Cetak</span></td>
-              </tr>
-              <tr>
-                <td>Jurnal Elektronik</td>
-                <td>3.200</td>
-                <td>Digital Library</td>
-                <td><span class="tag">Digital</span></td>
-              </tr>
-              <tr>
-                <td>Arsip &amp; Naskah Langka</td>
-                <td>1.350</td>
-                <td>Ruang arsip (dengan pendamping)</td>
-                <td><span class="tag">Cetak</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <nav class="reading-tabs" aria-label="Navigasi bacaan">
+        <button class="reading-tab active" type="button" data-view="for-you">Untuk Anda</button>
+        <button class="reading-tab" type="button" data-view="latest">Terbaru</button>
+        <button class="reading-tab" type="button" data-view="saved">Tersimpan</button>
+        <button class="reading-tab" type="button" data-view="history">Riwayat</button>
+        <button class="reading-tab" type="button" data-view="downloads">Unduhan</button>
+      </nav>
+
+      <div class="reading-view active" id="view-for-you">
+
+        <section class="feed-section inbox-section">
+          <div class="feed-heading">
+            <div>
+              <span class="feed-kicker">PILIHAN HARI INI</span>
+              <h2>Kotak masuk</h2>
+            </div>
+            <span class="feed-note">Sebuah ruang untuk singgah</span>
+          </div>
+
+          <article class="featured-reading reading-item"
+            data-title="Andai Kamu Tahu"
+            data-author="Naizo Journal"
+            data-genre="Refleksi & Kehidupan"
+            data-image="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85">
+            <div class="featured-copy">
+              <span class="reading-tag">CATATAN PILIHAN</span>
+              <p class="featured-author"><i class="bi bi-flower1"></i> naizo journal</p>
+              <h3>Andai kamu tahu, ada banyak hal yang perlahan kupelajari dari kehilangan.</h3>
+              <div class="reading-meta">
+                <span><i class="bi bi-clock"></i> 4 menit membaca</span>
+                <span><i class="bi bi-heart"></i> 1,2k</span>
+                <span><i class="bi bi-chat"></i> 38</span>
+              </div>
+            </div>
+            <div class="featured-image">
+              <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85" alt="Pemandangan senja yang tenang" loading="lazy">
+            </div>
+            <button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button>
+          </article>
+        </section>
+
+        <section class="feed-section genre-section">
+          <div class="feed-heading">
+            <div>
+              <span class="feed-kicker">CERITA TENTANG RASA</span>
+              <h2>Romansa</h2>
+            </div>
+            <a href="#romansa" class="see-all">Lihat semua <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="reading-grid" id="romansa">
+            <article class="reading-card reading-item" data-title="Kata yang Tak Sempat Sampai" data-author="Raisa" data-genre="Romansa" data-image="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=700&q=85" alt="Siluet dua orang dalam suasana senja" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Kata yang Tak Sempat Sampai</h3><p class="reading-author">raisawrites</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 17,2k</span><span><i class="bi bi-chat"></i> 160</span></div>
+            </article>
+            <article class="reading-card reading-item" data-title="Bagaimana Rasanya Melihatmu Kembali" data-author="Esmelour" data-genre="Romansa" data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=85" alt="Pemandangan senja dengan warna hangat" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Bagaimana Rasanya Melihatmu Kembali</h3><p class="reading-author">esmelour</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 8,1k</span><span><i class="bi bi-chat"></i> 116</span></div>
+            </article>
+            <article class="reading-card reading-item" data-title="Barangkali Aku Hanya Pandai Mengingat" data-author="Annila" data-genre="Romansa" data-image="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=700&q=85" alt="Suasana malam yang sunyi" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Barangkali Aku Hanya Pandai Mengingat</h3><p class="reading-author">annila</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 5,4k</span><span><i class="bi bi-chat"></i> 47</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="feed-section genre-section">
+          <div class="feed-heading">
+            <div><span class="feed-kicker">MENEMUKAN MAKNA</span><h2>Iman &amp; Spiritualitas</h2></div>
+            <a href="#spiritualitas" class="see-all">Lihat semua <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="reading-grid" id="spiritualitas">
+            <article class="reading-card reading-item" data-title="Belajar Pulang kepada Tenang" data-author="Jenna" data-genre="Iman & Spiritualitas" data-image="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=85" alt="Cahaya matahari menyentuh lanskap alam" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Belajar Pulang kepada Tenang</h3><p class="reading-author">jenna</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 8,7k</span><span><i class="bi bi-chat"></i> 81</span></div>
+            </article>
+            <article class="reading-card reading-item" data-title="Kumohon, Mudahkan Hidupnya" data-author="Lettersfromjingga" data-genre="Iman & Spiritualitas" data-image="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=85" alt="Cahaya pagi di balik perbukitan" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Kumohon, Mudahkan Hidupnya</h3><p class="reading-author">lettersfromjingga</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 10,5k</span><span><i class="bi bi-chat"></i> 144</span></div>
+            </article>
+            <article class="reading-card reading-item" data-title="Di Antara Doa dan Waktu" data-author="Ruanghening" data-genre="Iman & Spiritualitas" data-image="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=85" alt="Lanskap alam luas yang hening" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Di Antara Doa dan Waktu</h3><p class="reading-author">ruanghening</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 6,3k</span><span><i class="bi bi-chat"></i> 52</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="feed-section genre-section">
+          <div class="feed-heading">
+            <div><span class="feed-kicker">MENGENAL DIRI</span><h2>Refleksi &amp; Kehidupan</h2></div>
+            <a href="#refleksi" class="see-all">Lihat semua <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="reading-grid" id="refleksi">
+            <article class="reading-card reading-item" data-title="Hal-Hal yang Tidak Kita Ceritakan" data-author="Nara" data-genre="Refleksi & Kehidupan" data-image="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=85" alt="Danau dan pegunungan dalam kabut" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Hal-Hal yang Tidak Kita Ceritakan</h3><p class="reading-author">nara</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 12,4k</span><span><i class="bi bi-chat"></i> 98</span></div>
+            </article>
+            <article class="reading-card reading-item" data-title="Sebelum Hari Berganti" data-author="Aksara Senja" data-genre="Refleksi & Kehidupan" data-image="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=700&q=85" alt="Langit senja dengan warna lembut" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Sebelum Hari Berganti</h3><p class="reading-author">aksarasenja</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 9,2k</span><span><i class="bi bi-chat"></i> 73</span></div>
+            </article>
+            <article class="reading-card reading-item" data-title="Menjadi Rumah bagi Diri Sendiri" data-author="RuangKecil" data-genre="Refleksi & Kehidupan" data-image="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=700&q=85" alt="Jalan kecil di antara pepohonan" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Menjadi Rumah bagi Diri Sendiri</h3><p class="reading-author">ruangkecil</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 7,6k</span><span><i class="bi bi-chat"></i> 61</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="feed-section genre-section">
+          <div class="feed-heading">
+            <div><span class="feed-kicker">DUNIA DALAM KATA</span><h2>Sastra &amp; Fiksi</h2></div>
+            <a href="#sastra" class="see-all">Lihat semua <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="reading-grid" id="sastra">
+            <article class="reading-card reading-item" data-title="Kota yang Menyimpan Hujan" data-author="Arunika" data-genre="Sastra & Fiksi" data-image="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=700&q=85" alt="Kota malam dengan cahaya lampu" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Kota yang Menyimpan Hujan</h3><p class="reading-author">arunika</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 4,8k</span><span><i class="bi bi-chat"></i> 39</span></div>
+            </article>
+            <article class="reading-card reading-item" data-title="Perjalanan Menuju Tempat Asing" data-author="Senandika" data-genre="Sastra & Fiksi" data-image="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=700&q=85" alt="Jalur hutan yang diselimuti pepohonan" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Perjalanan Menuju Tempat Asing</h3><p class="reading-author">senandika</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 3,9k</span><span><i class="bi bi-chat"></i> 27</span></div>
+            </article>
+            <article class="reading-card reading-item" data-title="Di Ujung Sebuah Cerita" data-author="Laras" data-genre="Sastra & Fiksi" data-image="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=85">
+              <div class="cover-wrap"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=85" alt="Cahaya matahari pagi di alam terbuka" loading="lazy"><button class="save-reading" type="button" aria-label="Simpan bacaan"><i class="bi bi-bookmark"></i></button></div>
+              <h3>Di Ujung Sebuah Cerita</h3><p class="reading-author">laras</p><div class="reading-meta"><span><i class="bi bi-heart"></i> 5,1k</span><span><i class="bi bi-chat"></i> 44</span></div>
+            </article>
+          </div>
+        </section>
       </div>
 
-      <p class="text-secondary small mt-3">
-        <i class="bi bi-info-circle me-1"></i>
-        Data jumlah koleksi merupakan informasi contoh untuk tampilan website.
-      </p>
-
-    </div>
-  </section>
-
-  <!-- ATURAN PEMINJAMAN -->
-  <section class="nz-section">
-    <div class="container">
-
-      <div class="section-head reveal-left">
-        <span class="section-label">Informasi anggota</span>
-        <h2 class="section-title">Aturan Peminjaman</h2>
-        <hr class="divider">
-        <p>
-          Perhatikan ketentuan berikut sebelum meminjam koleksi agar layanan
-          perpustakaan berjalan dengan tertib.
-        </p>
+      <div class="reading-view" id="view-latest">
+        <div class="feed-heading"><div><span class="feed-kicker">BARU HADIR DI NAIZO</span><h2>Terbaru</h2></div></div>
+        <div class="reading-grid" id="latestGrid"></div>
       </div>
 
-      <div class="table-wrap reveal">
-        <div class="table-responsive">
-          <table class="nz-table">
-            <thead>
-              <tr>
-                <th>Ketentuan</th>
-                <th>Keterangan</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Masa Pinjam</td>
-                <td>14 hari, dapat diperpanjang satu kali.</td>
-              </tr>
-              <tr>
-                <td>Jumlah Buku</td>
-                <td>Maksimal 5 buku per anggota.</td>
-              </tr>
-              <tr>
-                <td>Denda Keterlambatan</td>
-                <td>Rp1.000 per buku per hari.</td>
-              </tr>
-              <tr>
-                <td>Arsip &amp; Naskah Langka</td>
-                <td>Dibaca di tempat, tidak untuk dipinjam.</td>
-              </tr>
-              <tr>
-                <td>Keanggotaan</td>
-                <td>Gratis, cukup membawa kartu identitas.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="reading-view" id="view-saved">
+        <div class="feed-heading"><div><span class="feed-kicker">KOLEKSI PRIBADI</span><h2>Tersimpan</h2></div></div>
+        <div class="reading-grid" id="savedGrid"></div>
+        <p class="reading-empty" id="savedEmpty">Belum ada bacaan tersimpan. Tekan ikon penanda pada bacaan untuk menyimpannya di sini.</p>
+      </div>
+
+      <div class="reading-view" id="view-history">
+        <div class="feed-heading"><div><span class="feed-kicker">JEJAK BACAANMU</span><h2>Riwayat</h2></div></div>
+        <div class="reading-grid" id="historyGrid"></div>
+        <p class="reading-empty" id="historyEmpty">Bacaan yang kamu buka akan muncul di sini.</p>
+      </div>
+
+      <div class="reading-view" id="view-downloads">
+        <div class="feed-heading"><div><span class="feed-kicker">BACA TANPA JARINGAN</span><h2>Unduhan</h2></div></div>
+        <div class="download-empty"><i class="bi bi-download"></i><h3>Ruang unduhanmu masih kosong</h3><p>Bacaan yang sudah tersedia untuk diunduh akan muncul di bagian ini.</p></div>
       </div>
 
     </div>
@@ -946,6 +975,133 @@
 
     </div>
   </footer>
+
+
+  <script>
+    // Navigasi tab bacaan
+    const readingTabs = document.querySelectorAll('.reading-tab');
+    const readingViews = document.querySelectorAll('.reading-view');
+    readingTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        readingTabs.forEach(item => item.classList.remove('active'));
+        readingViews.forEach(view => view.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('view-' + tab.dataset.view).classList.add('active');
+        if (tab.dataset.view === 'saved') renderReadingCollection('saved');
+        if (tab.dataset.view === 'history') renderReadingCollection('history');
+        if (tab.dataset.view === 'latest') renderLatest();
+      });
+    });
+
+    // Pencarian bacaan
+    const searchToggle = document.getElementById('searchToggle');
+    const readingSearch = document.getElementById('readingSearch');
+    const searchInput = document.getElementById('readingSearchInput');
+    searchToggle.addEventListener('click', () => {
+      readingSearch.classList.toggle('show');
+      if (readingSearch.classList.contains('show')) searchInput.focus();
+      else { searchInput.value = ''; filterReadings(''); }
+    });
+    searchInput.addEventListener('input', event => filterReadings(event.target.value));
+
+    function allReadingItems() {
+      return Array.from(document.querySelectorAll('.reading-item'));
+    }
+    function readingKey(item) {
+      return item.dataset.title + '|' + item.dataset.author;
+    }
+    function readStore(key) {
+      try { return JSON.parse(localStorage.getItem(key) || '[]'); }
+      catch (error) { return []; }
+    }
+    function writeStore(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); }
+      catch (error) { /* Penyimpanan lokal mungkin tidak tersedia */ }
+    }
+    function createReadingCard(item) {
+      const card = document.createElement('article');
+      card.className = 'reading-card';
+      const image = item.dataset.image || '';
+      const title = item.dataset.title || 'Bacaan';
+      const author = item.dataset.author || 'Naizo Library';
+      const genre = item.dataset.genre || '';
+      card.innerHTML = `
+        <div class="cover-wrap">
+          <img src="${image}" alt="" loading="lazy">
+          <span class="reading-genre-badge">${genre}</span>
+        </div>
+        <h3></h3><p class="reading-author"></p>
+        <div class="reading-meta"><span><i class="bi bi-bookmark-check"></i> Koleksi bacaan</span></div>`;
+      card.querySelector('h3').textContent = title;
+      card.querySelector('.reading-author').textContent = author;
+      return card;
+    }
+    function renderReadingCollection(type) {
+      const storeKey = type === 'saved' ? 'naizoSavedReadings' : 'naizoReadingHistory';
+      const target = document.getElementById(type + 'Grid');
+      const empty = document.getElementById(type + 'Empty');
+      const stored = readStore(storeKey);
+      target.innerHTML = '';
+      stored.forEach(entry => {
+        const source = allReadingItems().find(item => readingKey(item) === entry.key);
+        if (source) target.appendChild(createReadingCard(source));
+      });
+      empty.style.display = target.children.length ? 'none' : 'block';
+    }
+    function renderLatest() {
+      const target = document.getElementById('latestGrid');
+      target.innerHTML = '';
+      allReadingItems().slice(1).reverse().slice(0, 9).forEach(item => target.appendChild(createReadingCard(item)));
+    }
+    function filterReadings(query) {
+      const term = query.trim().toLowerCase();
+      document.querySelectorAll('#view-for-you .reading-item').forEach(item => {
+        const haystack = [item.dataset.title, item.dataset.author, item.dataset.genre].join(' ').toLowerCase();
+        item.hidden = term && !haystack.includes(term);
+      });
+      document.querySelectorAll('#view-for-you .genre-section').forEach(section => {
+        const cards = section.querySelectorAll('.reading-card');
+        section.hidden = term && !Array.from(cards).some(card => !card.hidden);
+      });
+    }
+
+    // Simpan bacaan dan catat riwayat saat kartu dipilih
+    document.addEventListener('click', event => {
+      const saveButton = event.target.closest('.save-reading');
+      if (saveButton) {
+        const item = saveButton.closest('.reading-item');
+        if (!item) return;
+        const key = readingKey(item);
+        let saved = readStore('naizoSavedReadings');
+        const exists = saved.some(entry => entry.key === key);
+        saved = exists ? saved.filter(entry => entry.key !== key) : [...saved, { key }];
+        writeStore('naizoSavedReadings', saved);
+        saveButton.classList.toggle('saved', !exists);
+        saveButton.innerHTML = `<i class="bi ${exists ? 'bi-bookmark' : 'bi-bookmark-fill'}"></i>`;
+        if (document.getElementById('view-saved').classList.contains('active')) renderReadingCollection('saved');
+        return;
+      }
+      const card = event.target.closest('.reading-card, .featured-reading');
+      if (card && card.classList.contains('reading-item')) {
+        const key = readingKey(card);
+        let history = readStore('naizoReadingHistory').filter(entry => entry.key !== key);
+        history.unshift({ key });
+        writeStore('naizoReadingHistory', history.slice(0, 30));
+      }
+    });
+
+    // Pulihkan ikon bacaan yang telah disimpan
+    const savedKeys = readStore('naizoSavedReadings').map(entry => entry.key);
+    allReadingItems().forEach(item => {
+      if (savedKeys.includes(readingKey(item))) {
+        const button = item.querySelector('.save-reading');
+        if (button) {
+          button.classList.add('saved');
+          button.innerHTML = '<i class="bi bi-bookmark-fill"></i>';
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
